@@ -1,0 +1,166 @@
+{
+ "image_id": "2302498470581445",
+ "local_image_path": "data/raw/mapillary/images/2302498470581445.jpg",
+ "image_sha256": "7ab480941ffe8c92685d0d19670935f751485680c68f1e94e7e34be83d06d9e0",
+ "street_id": 1112487557,
+ "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "response_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "model_version": null,
+ "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+ "params": {
+  "max_tokens": 2048,
+  "temperature": 1.0,
+  "top_k": 1,
+  "chat_template_kwargs": {
+   "enable_thinking": false
+  }
+ },
+ "prompt_version": "b1-prompt-v1",
+ "schema_version": "b1-visual-obs-v1",
+ "prompt": "You are annotating one street-level photograph for a streetscape research dataset.\nReport ONLY what is directly visible in this image. Do not infer hidden or likely objects.\nDo not judge quality, safety, livability, attractiveness or preferences. Do not give recommendations.\nDescribe observations factually (e.g. \"three mature street trees along the right sidewalk\"),\nnot interpretations (e.g. \"a green, pleasant street\").\n\nReturn ONLY valid JSON, no markdown, with exactly this structure:\n{\"image_quality\": {\"usable\": true|false, \"issues\": [\"blur\"|\"occlusion\"|\"low_light\"|\"overexposure\"|\"distortion\"|\"obstructed_view\"|...]},\n \"observations\": [{\"category\": \"<category>\", \"status\": \"visible\"|\"not_visible\"|\"uncertain\",\n                   \"observation\": \"<short factual description, <= 25 words>\", \"confidence\": <0.0-1.0>}]}\n\nInclude exactly one entry for EACH of these categories, in this order:\nsidewalk, roadway, curb, crossing, cycling_infrastructure, parking, trees_vegetation, street_furniture, lighting, signage, barriers, public_transport, building_frontage, pedestrians, cyclists, motor_vehicles\nUse status \"not_visible\" when the element cannot be seen (this does not mean it is absent),\nand \"uncertain\" when it may be present but is unclear. confidence = how sure you are of the entry.",
+ "inference_timestamp": "2026-09-25T22:48:50+00:00",
+ "raw_response": {
+  "id": "chatcmpl-88a79969-c798-494f-8d5c-ee584e7e0997",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "content": "\n{\"image_quality\": {\"usable\": true, \"issues\": []}, \"observations\": [{\"category\": \"sidewalk\", \"status\": \"visible\", \"observation\": \"Paved sidewalks are visible on both sides of the street.\", \"confidence\": 1.0}, {\"category\": \"roadway\", \"status\": \"visible\", \"observation\": \"A paved asphalt roadway occupies the central portion of the image.\", \"confidence\": 1.0}, {\"category\": \"curb\", \"status\": \"visible\", \"observation\": \"Curbs are visible separating the roadway from the sidewalks on both sides.\", \"confidence\": 1.0}, {\"category\": \"crossing\", \"status\": \"not_visible\", \"observation\": \"No crosswalks or pedestrian crossings are visible in the image.\", \"confidence\": 1.0}, {\"category\": \"cycling_infrastructure\", \"status\": \"visible\", \"observation\": \"The handlebars of a bicycle are visible in the immediate foreground at the bottom of the frame.\", \"confidence\": 0.95}, {\"category\": \"parking\", \"status\": \"visible\", \"observation\": \"Multiple cars are parked along both sides of the street.\", \"confidence\": 1.0}, {\"category\": \"trees_vegetation\", \"status\": \"not_visible\", \"observation\": \"No trees or vegetation are visible in the image.\", \"confidence\": 1.0}, {\"category\": \"street_furniture\", \"status\": \"not_visible\", \"observation\": \"No street furniture such as benches, trash cans, or lampposts are visible.\", \"confidence\": 1.0}, {\"category\": \"lighting\", \"status\": \"visible\", \"observation\": \"Artificial lights are visible on the building facades on the left side.\", \"confidence\": 0.9}, {\"category\": \"signage\", \"status\": \"visible\", \"observation\": \"A blue circular sign with a red border and a red diagonal line is visible on the left side.\", \"confidence\": 0.95}, {\"category\": \"barriers\", \"status\": \"not_visible\", \"observation\": \"No barriers are visible in the image.\", \"confidence\": 1.0}, {\"category\": \"public_transport\", \"status\": \"not_visible\", \"observation\": \"No public transport vehicles or infrastructure are visible.\", \"confidence\": 1.0}, {\"category\": \"building_frontage\", \"status\": \"visible\", \"observation\": \"Multi-story buildings line both sides of the street.\", \"confidence\": 1.0}, {\"category\": \"pedestrians\", \"status\": \"not_visible\", \"observation\": \"No pedestrians are visible in the image.\", \"confidence\": 1.0}, {\"category\": \"cyclists\", \"status\": \"visible\", \"observation\": \"The handlebars of a bicycle indicate a cyclist is present in the foreground.\", \"confidence\": 0.95}, {\"category\": \"motor_vehicles\", \"status\": \"visible\", \"observation\": \"Several motor vehicles, including a green van, black SUVs, and a beige minivan, are visible parked along the street.\", \"confidence\": 1.0}]}",
+     "role": "assistant",
+     "reasoning_content": null
+    },
+    "finish_reason": "stop",
+    "logprobs": null
+   }
+  ],
+  "created": 1790376531,
+  "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "service_tier": null,
+  "system_fingerprint": null,
+  "object": "chat.completion",
+  "usage": {
+   "prompt_tokens": 1236,
+   "completion_tokens": 707,
+   "total_tokens": 1943
+  },
+  "nvext": {
+   "scheduler_snapshot": {
+    "num_running_reqs": 13,
+    "num_waiting_reqs": 0
+   },
+   "request_throughput": {
+    "e2e_latency_seconds": 18.490551710128784,
+    "generation_tokens_per_second": 38.23574391307742,
+    "draft_tokens_per_second": 0.0
+   }
+  }
+ },
+ "parsed": {
+  "image_quality": {
+   "usable": true,
+   "issues": []
+  },
+  "observations": [
+   {
+    "category": "sidewalk",
+    "status": "visible",
+    "observation": "Paved sidewalks are visible on both sides of the street.",
+    "confidence": 1.0
+   },
+   {
+    "category": "roadway",
+    "status": "visible",
+    "observation": "A paved asphalt roadway occupies the central portion of the image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "curb",
+    "status": "visible",
+    "observation": "Curbs are visible separating the roadway from the sidewalks on both sides.",
+    "confidence": 1.0
+   },
+   {
+    "category": "crossing",
+    "status": "not_visible",
+    "observation": "No crosswalks or pedestrian crossings are visible in the image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "cycling_infrastructure",
+    "status": "visible",
+    "observation": "The handlebars of a bicycle are visible in the immediate foreground at the bottom of the frame.",
+    "confidence": 0.95
+   },
+   {
+    "category": "parking",
+    "status": "visible",
+    "observation": "Multiple cars are parked along both sides of the street.",
+    "confidence": 1.0
+   },
+   {
+    "category": "trees_vegetation",
+    "status": "not_visible",
+    "observation": "No trees or vegetation are visible in the image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "street_furniture",
+    "status": "not_visible",
+    "observation": "No street furniture such as benches, trash cans, or lampposts are visible.",
+    "confidence": 1.0
+   },
+   {
+    "category": "lighting",
+    "status": "visible",
+    "observation": "Artificial lights are visible on the building facades on the left side.",
+    "confidence": 0.9
+   },
+   {
+    "category": "signage",
+    "status": "visible",
+    "observation": "A blue circular sign with a red border and a red diagonal line is visible on the left side.",
+    "confidence": 0.95
+   },
+   {
+    "category": "barriers",
+    "status": "not_visible",
+    "observation": "No barriers are visible in the image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "public_transport",
+    "status": "not_visible",
+    "observation": "No public transport vehicles or infrastructure are visible.",
+    "confidence": 1.0
+   },
+   {
+    "category": "building_frontage",
+    "status": "visible",
+    "observation": "Multi-story buildings line both sides of the street.",
+    "confidence": 1.0
+   },
+   {
+    "category": "pedestrians",
+    "status": "not_visible",
+    "observation": "No pedestrians are visible in the image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "cyclists",
+    "status": "visible",
+    "observation": "The handlebars of a bicycle indicate a cyclist is present in the foreground.",
+    "confidence": 0.95
+   },
+   {
+    "category": "motor_vehicles",
+    "status": "visible",
+    "observation": "Several motor vehicles, including a green van, black SUVs, and a beige minivan, are visible parked along the street.",
+    "confidence": 1.0
+   }
+  ]
+ },
+ "validation": {
+  "errors": [],
+  "warnings": []
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "note": "Frozen Stage 2/3 baseline (V1 + original 3 V2 raw responses). Must not change.",
+ "sha256": {
+  "data/raw/vlm/1514293340184582__b1-prompt-v1.json": "812755e4b50840323814176e14239ed2d5c613cc98a921301ceeadb8f78dc927",
+  "data/raw/vlm/1514293340184582__b1-prompt-v2.json": "32a5bfb4646a48983f1aff3e22b211b1bdb25e883e34e1f6a8ece53820f51050",
+  "data/raw/vlm/2302498470581445__b1-prompt-v1.json": "b03c5b96e1e01e666461cd8fea6a75ee43aac92f15da9f37cf1470e2eca580bf",
+  "data/raw/vlm/2302498470581445__b1-prompt-v2.json": "224bf7d720aee73b6d50615e5e2e77087bafe1dc2cc585bb030fdea7aa3fb094",
+  "data/raw/vlm/379860519858209__b1-prompt-v1.json": "04f2d98a89d25203fb142aabc7777ada8d94eace8a505836efb1d56eae22dc85",
+  "data/raw/vlm/379860519858209__b1-prompt-v2.json": "76688230fe1deb854b8bdfa6ce34d96d7da93ce3909aa9440656c492da4ba7e7"
+ }
+}

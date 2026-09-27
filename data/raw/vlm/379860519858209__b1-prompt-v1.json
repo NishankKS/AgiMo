@@ -1,0 +1,166 @@
+{
+ "image_id": "379860519858209",
+ "local_image_path": "data/raw/mapillary/images/379860519858209.jpg",
+ "image_sha256": "ee0c78fc092781be4a80544abf60a379b7369236556eb15acd9ed2f78c8d2178",
+ "street_id": 1347340413,
+ "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "response_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "model_version": null,
+ "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+ "params": {
+  "max_tokens": 2048,
+  "temperature": 1.0,
+  "top_k": 1,
+  "chat_template_kwargs": {
+   "enable_thinking": false
+  }
+ },
+ "prompt_version": "b1-prompt-v1",
+ "schema_version": "b1-visual-obs-v1",
+ "prompt": "You are annotating one street-level photograph for a streetscape research dataset.\nReport ONLY what is directly visible in this image. Do not infer hidden or likely objects.\nDo not judge quality, safety, livability, attractiveness or preferences. Do not give recommendations.\nDescribe observations factually (e.g. \"three mature street trees along the right sidewalk\"),\nnot interpretations (e.g. \"a green, pleasant street\").\n\nReturn ONLY valid JSON, no markdown, with exactly this structure:\n{\"image_quality\": {\"usable\": true|false, \"issues\": [\"blur\"|\"occlusion\"|\"low_light\"|\"overexposure\"|\"distortion\"|\"obstructed_view\"|...]},\n \"observations\": [{\"category\": \"<category>\", \"status\": \"visible\"|\"not_visible\"|\"uncertain\",\n                   \"observation\": \"<short factual description, <= 25 words>\", \"confidence\": <0.0-1.0>}]}\n\nInclude exactly one entry for EACH of these categories, in this order:\nsidewalk, roadway, curb, crossing, cycling_infrastructure, parking, trees_vegetation, street_furniture, lighting, signage, barriers, public_transport, building_frontage, pedestrians, cyclists, motor_vehicles\nUse status \"not_visible\" when the element cannot be seen (this does not mean it is absent),\nand \"uncertain\" when it may be present but is unclear. confidence = how sure you are of the entry.",
+ "inference_timestamp": "2026-09-25T22:49:09+00:00",
+ "raw_response": {
+  "id": "chatcmpl-640c3f19-0208-4f31-8ef2-f8fb49cbb136",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "content": "\n{\"image_quality\": {\"usable\": true, \"issues\": []}, \"observations\": [{\"category\": \"sidewalk\", \"status\": \"visible\", \"observation\": \"Cobblestone sidewalk covers the ground in the foreground and extends into the background.\", \"confidence\": 0.95}, {\"category\": \"roadway\", \"status\": \"visible\", \"observation\": \"Cobblestone surface extends across the entire street area.\", \"confidence\": 0.95}, {\"category\": \"curb\", \"status\": \"visible\", \"observation\": \"Cobblestone curb lines the edge of the sidewalk on the left and right.\", \"confidence\": 0.95}, {\"category\": \"crossing\", \"status\": \"not_visible\", \"observation\": \"No marked crosswalk or pedestrian crossing is visible.\", \"confidence\": 0.9}, {\"category\": \"cycling_infrastructure\", \"status\": \"not_visible\", \"observation\": \"No dedicated bike lanes, racks, or other cycling infrastructure are visible.\", \"confidence\": 0.9}, {\"category\": \"parking\", \"status\": \"not_visible\", \"observation\": \"No parked vehicles or designated parking spaces are visible.\", \"confidence\": 0.9}, {\"category\": \"trees_vegetation\", \"status\": \"not_visible\", \"observation\": \"No trees or vegetation are visible in the scene.\", \"confidence\": 0.95}, {\"category\": \"street_furniture\", \"status\": \"not_visible\", \"observation\": \"No benches, trash cans, or other street furniture are visible.\", \"confidence\": 0.9}, {\"category\": \"lighting\", \"status\": \"not_visible\", \"observation\": \"No streetlights or other lighting fixtures are visible.\", \"confidence\": 0.9}, {\"category\": \"signage\", \"status\": \"visible\", \"observation\": \"A blue street sign is mounted on the wall of the building on the right.\", \"confidence\": 0.85}, {\"category\": \"barriers\", \"status\": \"not_visible\", \"observation\": \"No barriers, fences, or gates are visible.\", \"confidence\": 0.9}, {\"category\": \"public_transport\", \"status\": \"not_visible\", \"observation\": \"No buses, trams, or other public transport vehicles are visible.\", \"confidence\": 0.9}, {\"category\": \"building_frontage\", \"status\": \"visible\", \"observation\": \"Multiple buildings line the street, including a modern dark building on the left and older multi-story structures in the background.\", \"confidence\": 0.95}, {\"category\": \"pedestrians\", \"status\": \"visible\", \"observation\": \"One pedestrian in dark clothing and blue jeans walks near a bicycle on the left sidewalk.\", \"confidence\": 0.9}, {\"category\": \"cyclists\", \"status\": \"visible\", \"observation\": \"One person rides a bicycle on the right side of the street.\", \"confidence\": 0.9}, {\"category\": \"motor_vehicles\", \"status\": \"not_visible\", \"observation\": \"No motor vehicles are visible in the image.\", \"confidence\": 0.95}]}",
+     "role": "assistant",
+     "reasoning_content": null
+    },
+    "finish_reason": "stop",
+    "logprobs": null
+   }
+  ],
+  "created": 1790376550,
+  "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "service_tier": null,
+  "system_fingerprint": null,
+  "object": "chat.completion",
+  "usage": {
+   "prompt_tokens": 916,
+   "completion_tokens": 702,
+   "total_tokens": 1618
+  },
+  "nvext": {
+   "scheduler_snapshot": {
+    "num_running_reqs": 13,
+    "num_waiting_reqs": 0
+   },
+   "request_throughput": {
+    "e2e_latency_seconds": 16.589537620544434,
+    "generation_tokens_per_second": 42.31582676123808,
+    "draft_tokens_per_second": 0.0
+   }
+  }
+ },
+ "parsed": {
+  "image_quality": {
+   "usable": true,
+   "issues": []
+  },
+  "observations": [
+   {
+    "category": "sidewalk",
+    "status": "visible",
+    "observation": "Cobblestone sidewalk covers the ground in the foreground and extends into the background.",
+    "confidence": 0.95
+   },
+   {
+    "category": "roadway",
+    "status": "visible",
+    "observation": "Cobblestone surface extends across the entire street area.",
+    "confidence": 0.95
+   },
+   {
+    "category": "curb",
+    "status": "visible",
+    "observation": "Cobblestone curb lines the edge of the sidewalk on the left and right.",
+    "confidence": 0.95
+   },
+   {
+    "category": "crossing",
+    "status": "not_visible",
+    "observation": "No marked crosswalk or pedestrian crossing is visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "cycling_infrastructure",
+    "status": "not_visible",
+    "observation": "No dedicated bike lanes, racks, or other cycling infrastructure are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "parking",
+    "status": "not_visible",
+    "observation": "No parked vehicles or designated parking spaces are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "trees_vegetation",
+    "status": "not_visible",
+    "observation": "No trees or vegetation are visible in the scene.",
+    "confidence": 0.95
+   },
+   {
+    "category": "street_furniture",
+    "status": "not_visible",
+    "observation": "No benches, trash cans, or other street furniture are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "lighting",
+    "status": "not_visible",
+    "observation": "No streetlights or other lighting fixtures are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "signage",
+    "status": "visible",
+    "observation": "A blue street sign is mounted on the wall of the building on the right.",
+    "confidence": 0.85
+   },
+   {
+    "category": "barriers",
+    "status": "not_visible",
+    "observation": "No barriers, fences, or gates are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "public_transport",
+    "status": "not_visible",
+    "observation": "No buses, trams, or other public transport vehicles are visible.",
+    "confidence": 0.9
+   },
+   {
+    "category": "building_frontage",
+    "status": "visible",
+    "observation": "Multiple buildings line the street, including a modern dark building on the left and older multi-story structures in the background.",
+    "confidence": 0.95
+   },
+   {
+    "category": "pedestrians",
+    "status": "visible",
+    "observation": "One pedestrian in dark clothing and blue jeans walks near a bicycle on the left sidewalk.",
+    "confidence": 0.9
+   },
+   {
+    "category": "cyclists",
+    "status": "visible",
+    "observation": "One person rides a bicycle on the right side of the street.",
+    "confidence": 0.9
+   },
+   {
+    "category": "motor_vehicles",
+    "status": "not_visible",
+    "observation": "No motor vehicles are visible in the image.",
+    "confidence": 0.95
+   }
+  ]
+ },
+ "validation": {
+  "errors": [],
+  "warnings": []
+ }
+}

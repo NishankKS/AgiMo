@@ -1,0 +1,10 @@
+[project]
+name = "agimo-b1-kg"
+version = "0.1.0"
+description = "AgiMo B1 Streetscape Knowledge Graph proof-of-concept"
+requires-python = ">=3.11"
+dependencies = [
+    "geopandas>=1.1.4",
+    "neo4j>=5",
+    "python-dotenv>=1",
+]

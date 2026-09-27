@@ -1,0 +1,11 @@
+{
+ "note": "Frozen Stage 5 Groq raw responses + normalized Groq observations. Must not change.",
+ "sha256": {
+  "data/raw/vlm_groq/1172482813194388__v2-groq-comparison.json": "a72dfcf6a27606e6a61e6f17190ce4eb9d21af6dfe2e94c8952815fd25fd5b2b",
+  "data/raw/vlm_groq/399936865459221__v2-groq-comparison.json": "ee79fd986a2977f96f15aab7c85b148fbaf317c00611c45736f3c5dc1d21e410",
+  "data/raw/vlm_groq/478782403204273__v2-groq-comparison.json": "a48bf937b3d3439e233a205a97dcec8670136e2a26c0665cd252aedb84b07c4c",
+  "data/raw/vlm_groq/709179964757083__v2-groq-comparison.json": "a381ed871c10e38a7ade2666c443faff656799677da427332a99bc8bff908ee7",
+  "data/raw/vlm_groq/904858026737408__v2-groq-comparison.json": "1d6bc6751642852201a675404787f6a08ee7d68e7a148bcdf54cc26f65b7c6c4",
+  "data/processed/vlm_groq_observations.jsonl": "34c264454ca98b35feb5e4265179cac3e0afc298c6d1298a97e7098a43c4fa66"
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "size": 5,
+ "seed": 0,
+ "source": "Stage 4 sample, valid NVIDIA V2 only",
+ "note": "conditions detected from NVIDIA V2 claims, not verified truth",
+ "unmet_conditions": [],
+ "images": [
+  {
+   "image_id": "904858026737408",
+   "street_name": null,
+   "street_osm_id": 585204095,
+   "sequence_id": "10-ek7zZyxDqVLwgmA61Gw",
+   "captured_at": "2017-10-27T09:43:59.527000+00:00",
+   "local_image_path": "data/raw/mapillary/images/904858026737408.jpg",
+   "selection_reason": [
+    "cycling infrastructure / bicycle parking reported",
+    "curb on cobblestone (shared-surface curb question)",
+    "public transport / tram infrastructure reported"
+   ]
+  },
+  {
+   "image_id": "478782403204273",
+   "street_name": "Bautzner Straße",
+   "street_osm_id": 383734607,
+   "sequence_id": "VDiGwNco0xJJv0eKAJc-4A",
+   "captured_at": "2016-01-28T14:13:33.708000+00:00",
+   "local_image_path": "data/raw/mapillary/images/478782403204273.jpg",
+   "selection_reason": [
+    "fence/barrier reported",
+    "lighting infrastructure reported"
+   ]
+  },
+  {
+   "image_id": "399936865459221",
+   "street_name": null,
+   "street_osm_id": null,
+   "sequence_id": "ilxAa4vqKMJZec3Ygw1khC",
+   "captured_at": "2022-08-10T15:41:58.672000+00:00",
+   "local_image_path": "data/raw/mapillary/images/399936865459221.jpg",
+   "selection_reason": [
+    "fence/barrier reported"
+   ]
+  },
+  {
+   "image_id": "709179964757083",
+   "street_name": null,
+   "street_osm_id": 369367302,
+   "sequence_id": "sQvK8cz0Wxf7VqkICBdOD2",
+   "captured_at": "2024-02-19T16:29:15.901000+00:00",
+   "local_image_path": "data/raw/mapillary/images/709179964757083.jpg",
+   "selection_reason": [
+    "cycling infrastructure / bicycle parking reported"
+   ]
+  },
+  {
+   "image_id": "1172482813194388",
+   "street_name": "Louisenstraße",
+   "street_osm_id": 916722633,
+   "sequence_id": "szwfpv8h4ca5hqrz3vlnno",
+   "captured_at": "2014-06-12T18:13:37+00:00",
+   "local_image_path": "data/raw/mapillary/images/1172482813194388.jpg",
+   "selection_reason": [
+    "diversity fill"
+   ]
+  }
+ ]
+}

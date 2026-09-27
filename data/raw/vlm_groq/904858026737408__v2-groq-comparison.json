@@ -1,0 +1,268 @@
+{
+ "image_id": "904858026737408",
+ "local_image_path": "data/raw/mapillary/images/904858026737408.jpg",
+ "image_sha256": "26195c4a32cf50d56605884fb1fc380ba8e278b612dc91eb7619c3052a7e57d0",
+ "street_id": 585204095,
+ "model": "qwen/qwen3.8-27b",
+ "response_model": "qwen/qwen3.8-27b",
+ "model_version": null,
+ "endpoint": "https://api.groq.com/openai/v1/chat/completions",
+ "params": {
+  "max_completion_tokens": 2048,
+  "temperature": 0,
+  "seed": 0,
+  "reasoning_effort": "none",
+  "reasoning_format": "hidden",
+  "response_format": {
+   "type": "json_schema",
+   "json_schema": {
+    "name": "b1_visual_observations",
+    "strict": true,
+    "schema": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "image_quality",
+      "observations"
+     ],
+     "properties": {
+      "image_quality": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "usable",
+        "issues"
+       ],
+       "properties": {
+        "usable": {
+         "type": "boolean"
+        },
+        "issues": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         }
+        }
+       }
+      },
+      "observations": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "category",
+         "status",
+         "observation",
+         "confidence"
+        ],
+        "properties": {
+         "category": {
+          "type": "string",
+          "enum": [
+           "sidewalk",
+           "roadway",
+           "curb",
+           "crossing",
+           "cycling_infrastructure",
+           "parking",
+           "trees_vegetation",
+           "street_furniture",
+           "lighting",
+           "signage",
+           "barriers",
+           "public_transport",
+           "building_frontage",
+           "pedestrians",
+           "cyclists",
+           "motor_vehicles"
+          ]
+         },
+         "status": {
+          "type": "string",
+          "enum": [
+           "not_visible",
+           "uncertain",
+           "visible"
+          ]
+         },
+         "observation": {
+          "type": "string"
+         },
+         "confidence": {
+          "type": "number"
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "prompt_version": "v2-groq-comparison",
+ "schema_version": "b1-visual-obs-v1",
+ "prompt": "You are annotating one street-level photograph for a streetscape research dataset.\nReport ONLY what is directly visible. Do not infer hidden, likely or typical objects.\nDescribe, do not evaluate: never judge quality, safety, livability, attractiveness, design or preferences,\nand give no recommendations.\n\nInspect the whole image before answering: foreground, middle ground, background, left and right side,\nroadway, sidewalks, building edges, the space above the street, poles, overhead wires and intersections.\n\nIGNORE the image-capture setup: the capture car (hood, dashboard, mirrors), the capture bicycle\n(handlebars, frame, wheel), helmet, camera rig and the person carrying the camera. They are never\nstreetscape elements, vehicles, cyclists or pedestrians.\n\nCategory definitions:\n- sidewalk: a visibly distinct pedestrian walking surface beside or separated from the roadway.\n- roadway: the visible vehicle carriageway.\n- curb: a clearly visible physical raised edge between the roadway and another distinct space. Not inferred\n  from colour or material differences alone; if unclear use \"uncertain\".\n- crossing: a marked or physically defined pedestrian/cycle crossing (zebra, marked or signalised crossing).\n  An intersection alone is not a crossing.\n- cycling_infrastructure: infrastructure built for cycling (cycle lane, cycle track, bicycle road marking,\n  bicycle racks count under street_furniture). Bicycles and people cycling are NOT infrastructure.\n- parking: marked parking spaces, or vehicles clearly parked at the kerb or in a parking area\n  (not vehicles merely stopped or moving in traffic).\n- trees_vegetation: trees, shrubs, planting beds, grass or other greenery.\n- street_furniture: benches, bins, bicycle racks, public seating, bollards and similar public-space objects.\n- lighting: ONLY physical street-lighting fixtures (lamp posts, street lamps, lamps hanging on overhead wires,\n  lamps fixed to buildings). Daylight, sunlight, shadows or brightness are NOT lighting.\n- signage: traffic, parking, street-name, wayfinding or other public signs.\n- barriers: guardrails, fences, barrier posts or access barriers functioning as barriers.\n- public_transport: trams, buses, tram tracks, stops, platforms, shelters. If a rail vehicle is visible but\n  tram vs. other rail vehicle is unclear, write \"rail_vehicle\". Never call a rail vehicle a bus.\n- building_frontage: building facades along the street (continuous or detached; ground-floor shops only if\n  visibly supported). Do not infer economic activity.\n- pedestrians: people walking or standing in the street space (not the capture person).\n- cyclists: people riding or pushing bicycles, separate from the capture bicycle.\n- motor_vehicles: cars, vans, trucks, buses, motorcycles (not the capture vehicle).\n\nStatus:\n- \"visible\": clearly seen in this image.\n- \"uncertain\": possibly present but the image is unclear.\n- \"not_visible\": this image gives no sufficient visual evidence. It does NOT mean the element is absent from\n  the street. Phrase it as \"No <element> can be determined from this view.\", never as \"there is no\" / \"absent\".\n\nReturn ONLY valid JSON, no markdown, with exactly this structure:\n{\"image_quality\": {\"usable\": true|false, \"issues\": [\"blur\"|\"occlusion\"|\"low_light\"|\"overexposure\"|\"distortion\"|\"obstructed_view\"|...]},\n \"observations\": [{\"category\": \"<category>\", \"status\": \"visible\"|\"not_visible\"|\"uncertain\",\n                   \"observation\": \"<short factual description, <= 25 words>\", \"confidence\": <0.0-1.0>}]}\n\nInclude exactly one entry for EACH of these categories, in this order:\nsidewalk, roadway, curb, crossing, cycling_infrastructure, parking, trees_vegetation, street_furniture, lighting, signage, barriers, public_transport, building_frontage, pedestrians, cyclists, motor_vehicles\nconfidence = your own certainty for the entry (it is not a measured accuracy).",
+ "inference_timestamp": "2026-09-26T09:36:32+00:00",
+ "api_stats": {
+  "attempts": 1,
+  "retries": 0,
+  "http_429": 0,
+  "http_503": 0,
+  "errors": [],
+  "latency_s": 1.82,
+  "rate_limit_headers": {
+   "x-ratelimit-limit-requests": "1000",
+   "x-ratelimit-limit-tokens": "8000",
+   "x-ratelimit-remaining-requests": "999",
+   "x-ratelimit-remaining-tokens": "4855",
+   "x-ratelimit-reset-requests": "1m26.4s",
+   "x-ratelimit-reset-tokens": "23.587s"
+  }
+ },
+ "raw_response": {
+  "id": "chatcmpl-efcc9e46-d099-4bc7-b03f-c099c1b61d79",
+  "object": "chat.completion",
+  "created": 1790415394,
+  "model": "qwen/qwen3.8-27b",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "role": "assistant",
+     "content": "{\"image_quality\": {\"issues\": [], \"usable\": true}, \"observations\": [{\"category\": \"sidewalk\", \"confidence\": 0.95, \"observation\": \"Cobblestone sidewalks are visible on both the left and right sides of the street.\", \"status\": \"visible\"}, {\"category\": \"roadway\", \"confidence\": 0.95, \"observation\": \"An asphalt roadway runs through the center of the image, flanked by cobblestone areas.\", \"status\": \"visible\"}, {\"category\": \"curb\", \"confidence\": 0.9, \"observation\": \"Raised stone curbs separate the asphalt roadway from the cobblestone sidewalks on both sides.\", \"status\": \"visible\"}, {\"category\": \"crossing\", \"confidence\": 0.9, \"observation\": \"No marked pedestrian or cycle crossings are visible in the immediate foreground or middle ground.\", \"status\": \"not_visible\"}, {\"category\": \"cycling_infrastructure\", \"confidence\": 0.9, \"observation\": \"No dedicated cycle lanes, tracks, or specific bicycle road markings are visible on the street.\", \"status\": \"not_visible\"}, {\"category\": \"parking\", \"confidence\": 0.95, \"observation\": \"Multiple vehicles, including a red car and a yellow van, are parked along the left curb.\", \"status\": \"visible\"}, {\"category\": \"trees_vegetation\", \"confidence\": 0.9, \"observation\": \"Green tree branches and leaves are visible in the upper left corner of the frame.\", \"status\": \"visible\"}, {\"category\": \"street_furniture\", \"confidence\": 0.9, \"observation\": \"A wooden bench is situated on the right sidewalk, and a chalkboard sign stands nearby.\", \"status\": \"visible\"}, {\"category\": \"lighting\", \"confidence\": 0.85, \"observation\": \"A street lamp fixture is mounted on the facade of the building on the right side.\", \"status\": \"visible\"}, {\"category\": \"signage\", \"confidence\": 0.95, \"observation\": \"A red circular traffic sign is mounted on a pole on the left, and shop signs are visible.\", \"status\": \"visible\"}, {\"category\": \"barriers\", \"confidence\": 0.9, \"observation\": \"No guardrails, fences, or physical barriers are visible in the street space.\", \"status\": \"not_visible\"}, {\"category\": \"public_transport\", \"confidence\": 0.9, \"observation\": \"No trams, buses, or public transport infrastructure are visible in the scene.\", \"status\": \"not_visible\"}, {\"category\": \"building_frontage\", \"confidence\": 0.95, \"observation\": \"Multi-story buildings with ground-floor shops line both sides of the street.\", \"status\": \"visible\"}, {\"category\": \"pedestrians\", \"confidence\": 0.85, \"observation\": \"No pedestrians are clearly visible walking or standing in the street space.\", \"status\": \"not_visible\"}, {\"category\": \"cyclists\", \"confidence\": 0.9, \"observation\": \"No people riding or pushing bicycles are visible in the scene.\", \"status\": \"not_visible\"}, {\"category\": \"motor_vehicles\", \"confidence\": 0.95, \"observation\": \"A red car, a yellow van, and a red delivery van are visible on the street.\", \"status\": \"visible\"}]}"
+    },
+    "logprobs": null,
+    "finish_reason": "stop"
+   }
+  ],
+  "usage": {
+   "queue_time": 0.082622444,
+   "prompt_tokens": 1647,
+   "prompt_time": 0.141980774,
+   "completion_tokens": 709,
+   "completion_time": 1.487619536,
+   "total_tokens": 2356,
+   "total_time": 1.62960031
+  },
+  "usage_breakdown": null,
+  "system_fingerprint": "fp_43dd1ea4ee",
+  "x_groq": {
+   "id": "req_01m3eh5krnesybgp1054fkx6s6",
+   "seed": 0
+  },
+  "service_tier": "on_demand"
+ },
+ "parsed": {
+  "image_quality": {
+   "issues": [],
+   "usable": true
+  },
+  "observations": [
+   {
+    "category": "sidewalk",
+    "confidence": 0.95,
+    "observation": "Cobblestone sidewalks are visible on both the left and right sides of the street.",
+    "status": "visible"
+   },
+   {
+    "category": "roadway",
+    "confidence": 0.95,
+    "observation": "An asphalt roadway runs through the center of the image, flanked by cobblestone areas.",
+    "status": "visible"
+   },
+   {
+    "category": "curb",
+    "confidence": 0.9,
+    "observation": "Raised stone curbs separate the asphalt roadway from the cobblestone sidewalks on both sides.",
+    "status": "visible"
+   },
+   {
+    "category": "crossing",
+    "confidence": 0.9,
+    "observation": "No marked pedestrian or cycle crossings are visible in the immediate foreground or middle ground.",
+    "status": "not_visible"
+   },
+   {
+    "category": "cycling_infrastructure",
+    "confidence": 0.9,
+    "observation": "No dedicated cycle lanes, tracks, or specific bicycle road markings are visible on the street.",
+    "status": "not_visible"
+   },
+   {
+    "category": "parking",
+    "confidence": 0.95,
+    "observation": "Multiple vehicles, including a red car and a yellow van, are parked along the left curb.",
+    "status": "visible"
+   },
+   {
+    "category": "trees_vegetation",
+    "confidence": 0.9,
+    "observation": "Green tree branches and leaves are visible in the upper left corner of the frame.",
+    "status": "visible"
+   },
+   {
+    "category": "street_furniture",
+    "confidence": 0.9,
+    "observation": "A wooden bench is situated on the right sidewalk, and a chalkboard sign stands nearby.",
+    "status": "visible"
+   },
+   {
+    "category": "lighting",
+    "confidence": 0.85,
+    "observation": "A street lamp fixture is mounted on the facade of the building on the right side.",
+    "status": "visible"
+   },
+   {
+    "category": "signage",
+    "confidence": 0.95,
+    "observation": "A red circular traffic sign is mounted on a pole on the left, and shop signs are visible.",
+    "status": "visible"
+   },
+   {
+    "category": "barriers",
+    "confidence": 0.9,
+    "observation": "No guardrails, fences, or physical barriers are visible in the street space.",
+    "status": "not_visible"
+   },
+   {
+    "category": "public_transport",
+    "confidence": 0.9,
+    "observation": "No trams, buses, or public transport infrastructure are visible in the scene.",
+    "status": "not_visible"
+   },
+   {
+    "category": "building_frontage",
+    "confidence": 0.95,
+    "observation": "Multi-story buildings with ground-floor shops line both sides of the street.",
+    "status": "visible"
+   },
+   {
+    "category": "pedestrians",
+    "confidence": 0.85,
+    "observation": "No pedestrians are clearly visible walking or standing in the street space.",
+    "status": "not_visible"
+   },
+   {
+    "category": "cyclists",
+    "confidence": 0.9,
+    "observation": "No people riding or pushing bicycles are visible in the scene.",
+    "status": "not_visible"
+   },
+   {
+    "category": "motor_vehicles",
+    "confidence": 0.95,
+    "observation": "A red car, a yellow van, and a red delivery van are visible on the street.",
+    "status": "visible"
+   }
+  ]
+ },
+ "validation": {
+  "errors": [],
+  "warnings": []
+ },
+ "provider": "groq",
+ "system_fingerprint": "fp_43dd1ea4ee",
+ "prompt_source_version": "b1-prompt-v2",
+ "prompt_sha256": "c6fde707003509975b960211b22f4d313e250595286c42ec4b26b603a3467b76"
+}

@@ -1,0 +1,174 @@
+{
+ "image_id": "2692011060961999",
+ "local_image_path": "data/raw/mapillary/images/2692011060961999.jpg",
+ "image_sha256": "dcf72ced45515e55106722e6674972880cda9d156cfd6513fde33258db2cbb96",
+ "street_id": 794569965,
+ "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "response_model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+ "model_version": null,
+ "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions",
+ "params": {
+  "max_tokens": 2048,
+  "temperature": 1.0,
+  "top_k": 1,
+  "chat_template_kwargs": {
+   "enable_thinking": false
+  }
+ },
+ "prompt_version": "b1-prompt-v2",
+ "schema_version": "b1-visual-obs-v1",
+ "prompt": "You are annotating one street-level photograph for a streetscape research dataset.\nReport ONLY what is directly visible. Do not infer hidden, likely or typical objects.\nDescribe, do not evaluate: never judge quality, safety, livability, attractiveness, design or preferences,\nand give no recommendations.\n\nInspect the whole image before answering: foreground, middle ground, background, left and right side,\nroadway, sidewalks, building edges, the space above the street, poles, overhead wires and intersections.\n\nIGNORE the image-capture setup: the capture car (hood, dashboard, mirrors), the capture bicycle\n(handlebars, frame, wheel), helmet, camera rig and the person carrying the camera. They are never\nstreetscape elements, vehicles, cyclists or pedestrians.\n\nCategory definitions:\n- sidewalk: a visibly distinct pedestrian walking surface beside or separated from the roadway.\n- roadway: the visible vehicle carriageway.\n- curb: a clearly visible physical raised edge between the roadway and another distinct space. Not inferred\n  from colour or material differences alone; if unclear use \"uncertain\".\n- crossing: a marked or physically defined pedestrian/cycle crossing (zebra, marked or signalised crossing).\n  An intersection alone is not a crossing.\n- cycling_infrastructure: infrastructure built for cycling (cycle lane, cycle track, bicycle road marking,\n  bicycle racks count under street_furniture). Bicycles and people cycling are NOT infrastructure.\n- parking: marked parking spaces, or vehicles clearly parked at the kerb or in a parking area\n  (not vehicles merely stopped or moving in traffic).\n- trees_vegetation: trees, shrubs, planting beds, grass or other greenery.\n- street_furniture: benches, bins, bicycle racks, public seating, bollards and similar public-space objects.\n- lighting: ONLY physical street-lighting fixtures (lamp posts, street lamps, lamps hanging on overhead wires,\n  lamps fixed to buildings). Daylight, sunlight, shadows or brightness are NOT lighting.\n- signage: traffic, parking, street-name, wayfinding or other public signs.\n- barriers: guardrails, fences, barrier posts or access barriers functioning as barriers.\n- public_transport: trams, buses, tram tracks, stops, platforms, shelters. If a rail vehicle is visible but\n  tram vs. other rail vehicle is unclear, write \"rail_vehicle\". Never call a rail vehicle a bus.\n- building_frontage: building facades along the street (continuous or detached; ground-floor shops only if\n  visibly supported). Do not infer economic activity.\n- pedestrians: people walking or standing in the street space (not the capture person).\n- cyclists: people riding or pushing bicycles, separate from the capture bicycle.\n- motor_vehicles: cars, vans, trucks, buses, motorcycles (not the capture vehicle).\n\nStatus:\n- \"visible\": clearly seen in this image.\n- \"uncertain\": possibly present but the image is unclear.\n- \"not_visible\": this image gives no sufficient visual evidence. It does NOT mean the element is absent from\n  the street. Phrase it as \"No <element> can be determined from this view.\", never as \"there is no\" / \"absent\".\n\nReturn ONLY valid JSON, no markdown, with exactly this structure:\n{\"image_quality\": {\"usable\": true|false, \"issues\": [\"blur\"|\"occlusion\"|\"low_light\"|\"overexposure\"|\"distortion\"|\"obstructed_view\"|...]},\n \"observations\": [{\"category\": \"<category>\", \"status\": \"visible\"|\"not_visible\"|\"uncertain\",\n                   \"observation\": \"<short factual description, <= 25 words>\", \"confidence\": <0.0-1.0>}]}\n\nInclude exactly one entry for EACH of these categories, in this order:\nsidewalk, roadway, curb, crossing, cycling_infrastructure, parking, trees_vegetation, street_furniture, lighting, signage, barriers, public_transport, building_frontage, pedestrians, cyclists, motor_vehicles\nconfidence = your own certainty for the entry (it is not a measured accuracy).",
+ "inference_timestamp": "2026-09-25T23:19:34+00:00",
+ "api_stats": {
+  "attempts": 1,
+  "retries": 0,
+  "http_429": 0,
+  "http_503": 0,
+  "errors": [],
+  "latency_s": 19.45
+ },
+ "raw_response": {
+  "id": "chatcmpl-734db11f-2808-4ef5-99f3-ad888f09b8d7",
+  "choices": [
+   {
+    "index": 0,
+    "message": {
+     "content": "\n{\"image_quality\": {\"usable\": true, \"issues\": []}, \"observations\": [{\"category\": \"sidewalk\", \"status\": \"visible\", \"observation\": \"A paved sidewalk with cobblestone and concrete sections runs along the right side of the road.\", \"confidence\": 1.0}, {\"category\": \"roadway\", \"status\": \"visible\", \"observation\": \"The asphalt roadway is visible on the left side of the image, with vehicles parked along the curb.\", \"confidence\": 1.0}, {\"category\": \"curb\", \"status\": \"visible\", \"observation\": \"A raised curb separates the roadway from the sidewalk, constructed with cobblestones and concrete.\", \"confidence\": 1.0}, {\"category\": \"crossing\", \"status\": \"not_visible\", \"observation\": \"No marked or physically defined pedestrian or cycle crossing is visible in this view.\", \"confidence\": 1.0}, {\"category\": \"cycling_infrastructure\", \"status\": \"not_visible\", \"observation\": \"No cycling infrastructure such as cycle lanes, tracks, or markings is visible.\", \"confidence\": 1.0}, {\"category\": \"parking\", \"status\": \"visible\", \"observation\": \"Several cars are parked along the curb on the left side of the roadway.\", \"confidence\": 1.0}, {\"category\": \"trees_vegetation\", \"status\": \"visible\", \"observation\": \"Green foliage from a tree or shrub is visible behind a black metal fence on the right side.\", \"confidence\": 1.0}, {\"category\": \"street_furniture\", \"status\": \"visible\", \"observation\": \"A black metal fence and a concrete wall with graffiti are visible on the right, along with a green metal gate.\", \"confidence\": 1.0}, {\"category\": \"lighting\", \"status\": \"not_visible\", \"observation\": \"No physical street-lighting fixtures are visible in this image.\", \"confidence\": 1.0}, {\"category\": \"signage\", \"status\": \"visible\", \"observation\": \"A circular blue and red traffic sign is mounted on a pole in the middle distance.\", \"confidence\": 1.0}, {\"category\": \"barriers\", \"status\": \"visible\", \"observation\": \"A black metal fence and a concrete wall with graffiti function as barriers on the right side.\", \"confidence\": 1.0}, {\"category\": \"public_transport\", \"status\": \"not_visible\", \"observation\": \"No trams, buses, tram tracks, or related public transport infrastructure are visible.\", \"confidence\": 1.0}, {\"category\": \"building_frontage\", \"status\": \"visible\", \"observation\": \"A multi-story yellow brick building with ornate details lines the left side of the street.\", \"confidence\": 1.0}, {\"category\": \"pedestrians\", \"status\": \"visible\", \"observation\": \"Two pedestrians are walking on the sidewalk in the distance on the left side.\", \"confidence\": 1.0}, {\"category\": \"cyclists\", \"status\": \"not_visible\", \"observation\": \"No cyclists are visible in this image.\", \"confidence\": 1.0}, {\"category\": \"motor_vehicles\", \"status\": \"visible\", \"observation\": \"A black car and a beige van are parked on the left side of the roadway.\", \"confidence\": 1.0}]}",
+     "role": "assistant",
+     "reasoning_content": null
+    },
+    "finish_reason": "stop",
+    "logprobs": null
+   }
+  ],
+  "created": 1790378374,
+  "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "service_tier": null,
+  "system_fingerprint": null,
+  "object": "chat.completion",
+  "usage": {
+   "prompt_tokens": 1676,
+   "completion_tokens": 749,
+   "total_tokens": 2425
+  },
+  "nvext": {
+   "scheduler_snapshot": {
+    "num_running_reqs": 13,
+    "num_waiting_reqs": 0
+   },
+   "request_throughput": {
+    "e2e_latency_seconds": 18.88219833374023,
+    "generation_tokens_per_second": 39.66699145732552,
+    "draft_tokens_per_second": 0.0
+   }
+  }
+ },
+ "parsed": {
+  "image_quality": {
+   "usable": true,
+   "issues": []
+  },
+  "observations": [
+   {
+    "category": "sidewalk",
+    "status": "visible",
+    "observation": "A paved sidewalk with cobblestone and concrete sections runs along the right side of the road.",
+    "confidence": 1.0
+   },
+   {
+    "category": "roadway",
+    "status": "visible",
+    "observation": "The asphalt roadway is visible on the left side of the image, with vehicles parked along the curb.",
+    "confidence": 1.0
+   },
+   {
+    "category": "curb",
+    "status": "visible",
+    "observation": "A raised curb separates the roadway from the sidewalk, constructed with cobblestones and concrete.",
+    "confidence": 1.0
+   },
+   {
+    "category": "crossing",
+    "status": "not_visible",
+    "observation": "No marked or physically defined pedestrian or cycle crossing is visible in this view.",
+    "confidence": 1.0
+   },
+   {
+    "category": "cycling_infrastructure",
+    "status": "not_visible",
+    "observation": "No cycling infrastructure such as cycle lanes, tracks, or markings is visible.",
+    "confidence": 1.0
+   },
+   {
+    "category": "parking",
+    "status": "visible",
+    "observation": "Several cars are parked along the curb on the left side of the roadway.",
+    "confidence": 1.0
+   },
+   {
+    "category": "trees_vegetation",
+    "status": "visible",
+    "observation": "Green foliage from a tree or shrub is visible behind a black metal fence on the right side.",
+    "confidence": 1.0
+   },
+   {
+    "category": "street_furniture",
+    "status": "visible",
+    "observation": "A black metal fence and a concrete wall with graffiti are visible on the right, along with a green metal gate.",
+    "confidence": 1.0
+   },
+   {
+    "category": "lighting",
+    "status": "not_visible",
+    "observation": "No physical street-lighting fixtures are visible in this image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "signage",
+    "status": "visible",
+    "observation": "A circular blue and red traffic sign is mounted on a pole in the middle distance.",
+    "confidence": 1.0
+   },
+   {
+    "category": "barriers",
+    "status": "visible",
+    "observation": "A black metal fence and a concrete wall with graffiti function as barriers on the right side.",
+    "confidence": 1.0
+   },
+   {
+    "category": "public_transport",
+    "status": "not_visible",
+    "observation": "No trams, buses, tram tracks, or related public transport infrastructure are visible.",
+    "confidence": 1.0
+   },
+   {
+    "category": "building_frontage",
+    "status": "visible",
+    "observation": "A multi-story yellow brick building with ornate details lines the left side of the street.",
+    "confidence": 1.0
+   },
+   {
+    "category": "pedestrians",
+    "status": "visible",
+    "observation": "Two pedestrians are walking on the sidewalk in the distance on the left side.",
+    "confidence": 1.0
+   },
+   {
+    "category": "cyclists",
+    "status": "not_visible",
+    "observation": "No cyclists are visible in this image.",
+    "confidence": 1.0
+   },
+   {
+    "category": "motor_vehicles",
+    "status": "visible",
+    "observation": "A black car and a beige van are parked on the left side of the roadway.",
+    "confidence": 1.0
+   }
+  ]
+ },
+ "validation": {
+  "errors": [],
+  "warnings": []
+ }
+}

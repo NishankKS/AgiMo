@@ -1,0 +1,150 @@
+[
+ {
+  "image_id": "1391393364587653",
+  "raw_response_path": "data/raw/vlm/1391393364587653__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 718,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 1 column 2592 (char 2591)"
+  ],
+  "length": 2593,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ },
+ {
+  "image_id": "2653450758168746",
+  "raw_response_path": "data/raw/vlm/2653450758168746__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 748,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 1 column 2767 (char 2766)"
+  ],
+  "length": 2768,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ },
+ {
+  "image_id": "3071421596475336",
+  "raw_response_path": "data/raw/vlm/3071421596475336__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 12,
+  "stored_validation_errors": [
+   "missing 'observations' list"
+  ],
+  "length": 30,
+  "has_markdown_fence": false,
+  "has_think_tag": true,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "class": "malformed/truncated/garbage answer",
+  "locally_recoverable": false,
+  "reason": "no complete JSON object: Invalid control character at at char 27"
+ },
+ {
+  "image_id": "386064122572974",
+  "raw_response_path": "data/raw/vlm/386064122572974__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 960,
+  "stored_validation_errors": [
+   "invalid JSON: Invalid control character at: line 1 column 2962 (char 2961)"
+  ],
+  "length": 3966,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 338,
+  "leading_text": "",
+  "class": "malformed/truncated/garbage answer",
+  "locally_recoverable": false,
+  "reason": "no complete JSON object: Invalid control character at at char 2962"
+ },
+ {
+  "image_id": "463348118303970",
+  "raw_response_path": "data/raw/vlm/463348118303970__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 709,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 1 column 2632 (char 2631)"
+  ],
+  "length": 2633,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ },
+ {
+  "image_id": "524573645227846",
+  "raw_response_path": "data/raw/vlm/524573645227846__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 712,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 2 column 1 (char 2557)"
+  ],
+  "length": 2559,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "\n}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ },
+ {
+  "image_id": "748701757218369",
+  "raw_response_path": "data/raw/vlm/748701757218369__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 734,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 1 column 2661 (char 2660)"
+  ],
+  "length": 2662,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ },
+ {
+  "image_id": "932582530826779",
+  "raw_response_path": "data/raw/vlm/932582530826779__b1-prompt-v2.json",
+  "finish_reason": "stop",
+  "completion_tokens": 751,
+  "stored_validation_errors": [
+   "invalid JSON: Extra data: line 1 column 2833 (char 2832)"
+  ],
+  "length": 2834,
+  "has_markdown_fence": false,
+  "has_think_tag": false,
+  "has_unk_tokens": 0,
+  "leading_text": "",
+  "trailing_text": "}",
+  "first_object_validation_errors": [],
+  "class": "other parser/formatting problem",
+  "locally_recoverable": true,
+  "reason": "complete valid JSON object followed by 1 stray '}'; the production extractor takes first '{' to last '}', so json.loads sees 'Extra data'"
+ }
+]

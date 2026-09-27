@@ -1,0 +1,96 @@
+{
+ "candidate_count": 6,
+ "recovered_count": 6,
+ "rejected_count": 0,
+ "recovery_method": "remove_one_trailing_stray_brace",
+ "not_attempted_genuine_failures": [
+  "386064122572974",
+  "3071421596475336"
+ ],
+ "candidates": [
+  {
+   "image_id": "1391393364587653",
+   "raw_response_path": "data/raw/vlm/1391393364587653__b1-prompt-v2.json",
+   "raw_sha256": "adc76176eab1c7378e66b8f05b6308acd1054607a1a363d3bef8af2a3c1cf4f7",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 1 column 2592 (char 2591)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  },
+  {
+   "image_id": "2653450758168746",
+   "raw_response_path": "data/raw/vlm/2653450758168746__b1-prompt-v2.json",
+   "raw_sha256": "6e0942a5707c8b587ee04c2711de3901257b62220c45f21aef3293647abef0ba",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 1 column 2767 (char 2766)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  },
+  {
+   "image_id": "463348118303970",
+   "raw_response_path": "data/raw/vlm/463348118303970__b1-prompt-v2.json",
+   "raw_sha256": "2b694948502f9c06204416af3a5cfa4691af822ca91ecead8e5726e935b09a2f",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 1 column 2632 (char 2631)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  },
+  {
+   "image_id": "524573645227846",
+   "raw_response_path": "data/raw/vlm/524573645227846__b1-prompt-v2.json",
+   "raw_sha256": "58c0966e39a23aa1d339ab2e54c6a16a0176ab6394ab1ddb9bbc08d3ea997585",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 2 column 1 (char 2557)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  },
+  {
+   "image_id": "748701757218369",
+   "raw_response_path": "data/raw/vlm/748701757218369__b1-prompt-v2.json",
+   "raw_sha256": "5e302cc4f16272808cd2c4e33e74ff2fbd6e60d9c1d185045d17a77f6094ea22",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 1 column 2661 (char 2660)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  },
+  {
+   "image_id": "932582530826779",
+   "raw_response_path": "data/raw/vlm/932582530826779__b1-prompt-v2.json",
+   "raw_sha256": "16dbe4a7d84b092a5adbe2d7f58b5bb3a2edaa5de40b9a99c51faa7767b52854",
+   "recovered": true,
+   "reason": "complete JSON object followed by exactly one stray '}'",
+   "original_validation_errors": [
+    "invalid JSON: Extra data: line 1 column 2833 (char 2832)"
+   ],
+   "validation_after_recovery": {
+    "errors": [],
+    "warnings": []
+   }
+  }
+ ]
+}
