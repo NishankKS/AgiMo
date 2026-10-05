@@ -1,0 +1,13 @@
+# Keep the working tree identical on native Linux and Windows/WSL (see docs/development_environment.md).
+
+# Text files: LF everywhere, also when checked out with Git for Windows (core.autocrlf).
+* text=auto eol=lf
+
+# Raw research data is verified byte-for-byte by checksum manifests (data/processed/*sha256.json): never convert.
+data/raw/** -text
+
+# Python's csv module writes CRLF line endings (RFC 4180); keep CSVs exactly as written.
+*.csv -text
+
+*.jpg binary
+*.png binary

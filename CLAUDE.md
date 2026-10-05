@@ -40,3 +40,17 @@ Before each phase:
 4. Test it.
 5. Report what was created and tested.
 6. Stop and wait for further instructions.
+
+## Cross-machine development
+
+This repository is developed on two machines: native Linux with Claude Code, and Windows + WSL with OpenCode.
+See `docs/development_environment.md`. `AGENTS.md` points OpenCode to this file.
+
+- Git is the source of truth. One codebase; branches are for features, never per operating system.
+- Before editing: `git status` + `git fetch`, and integrate remote work first. No destructive git commands
+  (`reset --hard`, `clean -fd`, force push) unless explicitly requested.
+- `.env` is machine-local and never committed. Never print secrets; load `.env` only via Python.
+- No absolute or OS-specific paths in code. Run scripts from the repository root.
+- Neo4j state is local per machine. It is rebuilt from scripts and committed data, not synchronised.
+- Do not commit or push unless asked. Before a commit: run the tests, check the diff, check that no
+  secrets or generated files are staged.

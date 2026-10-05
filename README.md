@@ -10,6 +10,9 @@ See `B1_CONTEXT.md` for background.
 
 ## Setup
 
+Developed on native Linux and Windows + WSL from one codebase. For per-machine setup, `.env`, Neo4j and the
+Git workflow, see `docs/development_environment.md`.
+
 ```bash
 cp .env.example .env          # then set NEO4J_PASSWORD (min. 8 chars)
 docker compose up -d          # start Neo4j
